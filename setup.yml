@@ -15,7 +15,8 @@
     - name: cloning tocd
       git:
         repo: https://github.com/eamram/tocd.git
-        dest: /home/ec2-user/tpcd
+        dest: /home/ec2-user/tocd
+        update: no
       become: yes
       become_method: sudo
     - name: installing docker
@@ -27,7 +28,7 @@
     - name: add group docker to ec2-user
       user:
         name: ec2-user
-        group: docker
+        groups: docker
         append: yes
       become: yes
       become_method: sudo
